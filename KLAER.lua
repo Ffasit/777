@@ -14391,7 +14391,7 @@ local Banda = 'https://t.me/Qtdao/71'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = user, callback_data="/username"},
+{text = user, url="http://t.me/"..coworker},
 },
 {
 {text = textt, url="http://t.me/"..coworker},
@@ -16138,7 +16138,7 @@ Msᴀɢ ~ #msgs
 𓄼 𝗖𝗛 - 『@sasa_boody』 ●
 ]],
 [[
-𝐓𝐓• 𝐘𝐎𝐔𝐑 𝐈𝐃 𖠰 #id .
+𝐓𝐓• 𝐘𝐎𝐔𝐑 ??𝐃 𖠰 #id .
 𝐓𝐓• 𝐌𝐬𝐠𝐒 𖠰 #msgs .
 𝐓𝐓• 𝐔𝐬𝐞𝐫𝐍𝐚 𖠰 #username .
 𝐓𝐓• 𝐒𝐓𝐀𝐒𝐓 𖠰 #stast .
@@ -21849,21 +21849,11 @@ local Teext =[[
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true') 
 end
 if Text == '/Lange' then
-send(msg.chat_id_, msg.id_,'   '..msg.sender_user_id_)
+send(msg.chat_id_, reply_to_message_id_,'   '..msg.sender_user_id_)
 end
 
-
-if Text == '/username' then
-if result.username_ then
-username = '@'..result.username_  
-else
-username = 'sasa_boody'
-end
-local user = '@'..result.username_
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(user)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true') 
-end
 if Text == '/bowtie' then
-send(msg.chat_id_, msg.id_,getbio(msg.sender_user_id_)) 
+send(msg.chat_id_, reply_to_message_id_,getbio(msg.sender_user_id_)) 
 end 
 if Text and Text:match("^yesS(.*)$") then  
 local delallph = Text:match("^yesS(.*)$")
