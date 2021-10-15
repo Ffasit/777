@@ -21853,11 +21853,13 @@ if Text == 'Lange'..data.sender_user_id_ then
 if not Bot(msg) then 
 send(msg.chat_id_, msg.id_,'   '..msg.sender_user_id_)
 end
+end
 
 
 if Text == 'bowtie'..data.sender_user_id_ then  
 if not Bot(msg) then 
 send(msg.chat_id_, msg.id_,getbio(msg.sender_user_id_)) 
+end
 end 
 if Text and Text:match("^yesS(.*)$") then  
 local delallph = Text:match("^yesS(.*)$")
