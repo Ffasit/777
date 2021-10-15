@@ -4053,10 +4053,10 @@ local Text = [[
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = 'Ᏼ Ꭺ Ν Ꭰ Ꭺ~"𖥕𝖋_𝖔𝖋𝖋🇬🇺',url="t.me/Q_o_ll"}},
+{{text = '⤥𝘽.𝘼.𝙉.𝘿.𝘼🇨🇷',url="t.me/Q_o_ll"}},
 }
 local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/Qtdao/68&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/Q_o_ll&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
 end
 
 
@@ -21852,11 +21852,13 @@ if Text == '/Lange' then
 send(msg.chat_id_, msg.id_,'   '..msg.sender_user_id_)
 end
 if Text == '/username' then
-if result.username_ then
 username = '@'..result.username_  
 else
 username = 'sasa_boody'
 end
+send(msg.chat_id_, msg.id_,'   '..result.username_)
+end
+if Text == '/username' then
 send(msg.chat_id_, msg.id_,'   '..result.username_)
 end
 if Text == '/bowtie' then
