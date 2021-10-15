@@ -4010,7 +4010,7 @@ keyboard.inline_keyboard = {
 {{text = ' اضغط لاضافه البوت لمجموعتك ' ,url="t.me/"..dofile("./Info.lua").botUserName.."?startgroup=start"}}, 
 }
 local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendvideo?chat_id=' .. msg.chat_id_ .. '&video=https://t.me/xxxcccvvbbnn/902&caption=' .. URL.escape(Text).."&photo="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/sasa_boody&caption=' .. URL.escape(Text).."&photo="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
 end
 
 if text == 'مصطفي' or text == 'صاصا' or text == 'مصاصا' or text == 'مبرمج مصطفي' then
@@ -14391,7 +14391,7 @@ local Banda = 'https://t.me/Qtdao/71'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = user, url="http://t.me/"..coworker},
+{text = user, callback_data="/username"},
 },
 {
 {text = textt, url="http://t.me/"..coworker},
@@ -16138,7 +16138,7 @@ Msᴀɢ ~ #msgs
 𓄼 𝗖𝗛 - 『@sasa_boody』 ●
 ]],
 [[
-??𝐓• 𝐘𝐎𝐔𝐑 𝐈𝐃 𖠰 #id .
+𝐓𝐓• 𝐘𝐎𝐔𝐑 𝐈𝐃 𖠰 #id .
 𝐓𝐓• 𝐌𝐬𝐠𝐒 𖠰 #msgs .
 𝐓𝐓• 𝐔𝐬𝐞𝐫𝐍𝐚 𖠰 #username .
 𝐓𝐓• 𝐒𝐓𝐀𝐒𝐓 𖠰 #stast .
@@ -19377,6 +19377,7 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {{text = 'mostafa',url="t.me/M_P_L_6"},{text = 'body', url="t.me/BoOdY_BaSha"}},
+{{text = '⤥𝘽.𝘼.𝙉.𝘿.𝘼🇨🇷',url="t.me/Q_o_ll"}},
 {{text = '𝙱𝙰𝙲𝙺', callback_data="/HHH"}},
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessagecaption?chat_id='..Chat_id..'&caption='..URL.escape(Teext)..'&message_id='..msg_idd..'&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  
@@ -21848,9 +21849,18 @@ local Teext =[[
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true') 
 end
 if Text == '/Lange' then
-send(msg.chat_id_, msg.id_,'   ⇐ '..msg.sender_user_id_)
+send(msg.chat_id_, msg.id_,'   '..msg.sender_user_id_)
+end
+if Text == '/username' then
+if result.username_ then
+username = '@'..result.username_  
+else
+username = 'sasa_boody'
+end
+send(msg.chat_id_, msg.id_,'   '..result.username_)
 end
 if Text == '/bowtie' then
+local getbioY = getbio(msg.sender_user_id_)
 send(msg.chat_id_, msg.id_,getbio(msg.sender_user_id_)) 
 end 
 if Text and Text:match("^yesS(.*)$") then  
