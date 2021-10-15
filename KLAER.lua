@@ -21855,7 +21855,6 @@ if Text == '/username' then
 username = '@'..result.username_  
 else
 username = 'sasa_boody'
-end
 send(msg.chat_id_, msg.id_,'   '..result.username_)
 end
 if Text == '/username' then
