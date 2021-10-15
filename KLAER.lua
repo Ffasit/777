@@ -21851,15 +21851,7 @@ end
 if Text == '/Lange' then
 send(msg.chat_id_, msg.id_,'   '..msg.sender_user_id_)
 end
-if Text == '/username' then
-username = '@'..result.username_  
-else
-username = 'sasa_boody'
-send(msg.chat_id_, msg.id_,'   '..result.username_)
-end
-if Text == '/username' then
-send(msg.chat_id_, msg.id_,'   '..result.username_)
-end
+
 
 if Text == '/username' then
 if result.username_ then
@@ -21918,7 +21910,7 @@ bot_data:srem(ban_id..'S00F4:MN:TF'..msg.chat_id_, data.sender_user_id_)
 bot_data:srem(ban_id..'Special:User'..msg.chat_id_, data.sender_user_id_)
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '𝚂𝙾𝚄𝚁𝙲𝙴 𝙺𝙻𝙰??𝚁',url='http://t.me/sasa_boody'}},
+{{text = '𝚂𝙾𝚄𝚁𝙲𝙴 𝙺𝙻𝙰𝙴𝚁',url='http://t.me/sasa_boody'}},
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(" ● تم تنزيلك من جميع الرتب")..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
