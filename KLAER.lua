@@ -14391,7 +14391,7 @@ local Banda = 'https://t.me/Qtdao/71'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = user, callback_data="/username"},
+{text = user, url="http://t.me/"..coworker},
 },
 {
 {text = textt, url="http://t.me/"..coworker},
@@ -19194,7 +19194,7 @@ keyboard.inline_keyboard = {
 {text = ' معرفة برجك 🧭', callback_data="/zporg"},
 },
 {
-{text = '• الحوت ??', callback_data="/zhot"},
+{text = '• الحوت 🐋', callback_data="/zhot"},
 },
 {
 {text = '• الجوزاء 🌩', callback_data="/zguza"},{text = '• الدلو 🦯', callback_data="/zdlu"},
@@ -21851,6 +21851,7 @@ end
 
 if Text == 'Lange'..data.sender_user_id_ then  
 if not Bot(msg) then 
+DeleteMessage(Chat_id,{[0] = Msg_id})  
 send(msg.chat_id_, msg.id_,'   '..msg.sender_user_id_)
 end
 end
@@ -21858,6 +21859,7 @@ end
 
 if Text == 'bowtie'..data.sender_user_id_ then  
 if not Bot(msg) then 
+DeleteMessage(Chat_id,{[0] = Msg_id})  
 send(msg.chat_id_, msg.id_,getbio(msg.sender_user_id_)) 
 end
 end 
