@@ -8619,14 +8619,7 @@ end
 local msg_id = msg.id_/2097152/0.5
 send_inline_key(msg.chat_id_,t,nil,keyboard,msg_id)
 end
-if text == 'تفعيل النسخه التلقائيه' and SudoBot(msg) then  
-send(msg.chat_id_, msg.id_,"*⌯︙تم تفعيل النسخه الاحتياطيه التلقائيه*") 
-database:del(bot_id.."AutoFile")
-end
-if text == 'تعطيل النسخه التلقائيه' and SudoBot(msg) then  
-send(msg.chat_id_, msg.id_,"*⌯︙تم تعطيل النسخه الاحتياطيه التلقائيه*") 
-database:set(bot_id.."AutoFile",true) 
-end
+
 if text == ("مسح الثانوين") and SudoBot(msg) then
 bot_data:del(ban_id.."Dev:ban:2")
 send(msg.chat_id_, msg.id_, "\n ● تم مسح قائمة المطورين الثانوين  ")
@@ -14400,10 +14393,10 @@ keyboard.inline_keyboard = {
 {text = masg, url="http://t.me/"..coworker},
 },
 {
-{text = shook, callback_data="Lange"..msg.sender_user_id_},
+{text = shook, callback_data="/Lange "..userid},
 },
 {
-{text = stay, callback_data="bowtie"..msg.sender_user_id_},
+{text = stay, callback_data="/bowtie "..userid},
 },
 }
 local function getpro(extra, result, success) 
@@ -16154,7 +16147,7 @@ Msᴀɢ ~ #msgs
 ↑↓𝗖𝗛 ➯  『@sasa_boody』 ●  
 ]],
 [[
-𝟓 𝟔 𖡻 #username  ࿇🦄
+𝟓 ?? 𖡻 #username  ࿇🦄
 𝟓 𝟔 𖡻 #msgs  ࿇🦄
 𝟓 𝟔 𖡻 #auto  ࿇🦄
 𝟓 𝟔 𖡻 #stast  ࿇🦄
@@ -16726,93 +16719,7 @@ t = v.."\n"
 end
 send(msg.chat_id_, msg.id_, t)
 end
-if text and not database:get(bot_id.."AutoFile") then
-Time = database:get(bot_id.."AutoFile:Time")
-if Time then 
-if Time ~= os.date("%x") then  
-local list = database:smembers(bot_id..'Chek:Groups') 
-local t = '{"BOT_ID": '..bot_id..',"GP_BOT":{'  
-for k,v in pairs(list) do   
-NAME = 'TELANDW Chat'
-link = database:get(bot_id.."Private:Group:Link"..msg.chat_id_) or ''
-CoSu = database:smembers(bot_id..'CoSu'..v)
-ASAS = database:smembers(bot_id..'Basic:Constructor'..v)
-MNSH = database:smembers(bot_id..'Constructor'..v)
-MDER = database:smembers(bot_id..'Manager'..v)
-MOD = database:smembers(bot_id..'Mod:User'..v)
-if k == 1 then
-t = t..'"'..v..'":{"TELANDW":"'..NAME..'",'
-else
-t = t..',"'..v..'":{"TELANDW":"'..NAME..'",'
-end
-if #CoSu ~= 0 then 
-t = t..'"CoSu":['
-for k,v in pairs(CoSu) do
-if k == 1 then
-t =  t..'"'..v..'"'
-else
-t =  t..',"'..v..'"'
-end
-end   
-t = t..'],'
-end
-if #ASAS ~= 0 then 
-t = t..'"ASAS":['
-for k,v in pairs(ASAS) do
-if k == 1 then
-t =  t..'"'..v..'"'
-else
-t =  t..',"'..v..'"'
-end
-end   
-t = t..'],'
-end
-if #MOD ~= 0 then
-t = t..'"MOD":['
-for k,v in pairs(MOD) do
-if k == 1 then
-t =  t..'"'..v..'"'
-else
-t =  t..',"'..v..'"'
-end
-end   
-t = t..'],'
-end
-if #MDER ~= 0 then
-t = t..'"MDER":['
-for k,v in pairs(MDER) do
-if k == 1 then
-t =  t..'"'..v..'"'
-else
-t =  t..',"'..v..'"'
-end
-end   
-t = t..'],'
-end
-if #MNSH ~= 0 then
-t = t..'"MNSH":['
-for k,v in pairs(MNSH) do
-if k == 1 then
-t =  t..'"'..v..'"'
-else
-t =  t..',"'..v..'"'
-end
-end   
-t = t..'],'
-end
-t = t..'"linkgroup":"'..link..'"}' or ''
-end
-t = t..'}}'
-local File = io.open('./'..bot_id..'.json', "w")
-File:write(t)
-File:close()
-sendDocument(SUDO, msg.id_,0, 1, nil, './'..bot_id..'.json', '⌯︙عدد مجموعات التي في البوت { '..#list..'}')
-database:set(bot_id.."AutoFile:Time",os.date("%x"))
-end
-else 
-database:set(bot_id.."AutoFile:Time",os.date("%x"))
-end
-end
+
 if text == "تعطيل الافلام" and Mod(msg) then
 send(msg.chat_id_, msg.id_, ' ● تم تعطيل الافلام')
 bot_data:set(ban_id.."ban:movie_bot"..msg.chat_id_,"close")
@@ -16988,6 +16895,20 @@ if Text == 'okCaptcha'..data.sender_user_id_ then
 DeleteMessage(Chat_id, {[0] = Msg_id}) 
 return https.request("https://api.telegram.org/bot" .. token .. "/restrictChatMember?chat_id=" .. Chat_id .. "&user_id="..Ok_id .. "&can_send_messages=True&can_send_media_messages=True&can_send_other_messages=True&can_add_web_page_previews=True")
 end
+if Text and Text:match("^/Lange (.*)$") then
+local userid = Text:match("^/Lange (.*)$")
+if not Bot(msg) then 
+send(msg.chat_id_, msg.id_,'   '..msg.sender_user_id_)
+end
+end
+
+
+if Text and Text:match("^/bowtie (.*)$") then
+local userid = Text:match("^/bowtie (.*)$")
+if not Bot(msg) then 
+send(msg.chat_id_, msg.id_,getbio(msg.sender_user_id_)) 
+end
+end 
 if Text == '/ven3' then
 if not CoSu(data) then
 local notText = '✘ عذرا الاوامر هذه لا تخصك'
@@ -21849,20 +21770,7 @@ local Teext =[[
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true') 
 end
 
-if Text == 'Lange'..data.sender_user_id_ then  
-if not Bot(msg) then 
-DeleteMessage(Chat_id,{[0] = Msg_id})  
-send(msg.chat_id_, msg.id_,'   '..msg.sender_user_id_)
-end
-end
 
-
-if Text == 'bowtie'..data.sender_user_id_ then  
-if not Bot(msg) then 
-DeleteMessage(Chat_id,{[0] = Msg_id})  
-send(msg.chat_id_, msg.id_,getbio(msg.sender_user_id_)) 
-end
-end 
 if Text and Text:match("^yesS(.*)$") then  
 local delallph = Text:match("^yesS(.*)$")
 if msg.sender_user_id_ == tonumber(SUDO) then 
