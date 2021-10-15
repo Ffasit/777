@@ -14373,6 +14373,11 @@ username = '@'..result.username_
 else
 username = 'sasa_boody'
 end
+if result.username_ then
+coworker = result.username_ 
+else
+coworker = 'sasa_boody'
+end
 local getbioY = getbio(msg.sender_user_id_)
 local iduser = msg.sender_user_id_
 local Msguser = tonumber(bot_data:get(ban_id..'Msg_User'..msg.chat_id_..':'..msg.sender_user_id_) or 1) 
@@ -14386,19 +14391,19 @@ local Banda = 'https://t.me/Qtdao/71'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = user, url="http://t.me/"..username},
+{text = user, url="http://t.me/"..coworker},
 },
 {
-{text = textt, url="http://t.me/"..username},
+{text = textt, url="http://t.me/"..coworker},
 },
 {
-{text = masg, url="http://t.me/"..username},
+{text = masg, url="http://t.me/"..coworker},
 },
 {
-{text = shook, url="http://t.me/"..username},
+{text = shook, callback_data="/Lange"},
 },
 {
-{text = stay, url="http://t.me/"..username},
+{text = stay, callback_data="/bowtie"},
 },
 }
 local function getpro(extra, result, success) 
@@ -16133,7 +16138,7 @@ Msᴀɢ ~ #msgs
 𓄼 𝗖𝗛 - 『@sasa_boody』 ●
 ]],
 [[
-𝐓𝐓• 𝐘𝐎𝐔𝐑 𝐈𝐃 𖠰 #id .
+??𝐓• 𝐘𝐎𝐔𝐑 𝐈𝐃 𖠰 #id .
 𝐓𝐓• 𝐌𝐬𝐠𝐒 𖠰 #msgs .
 𝐓𝐓• 𝐔𝐬𝐞𝐫𝐍𝐚 𖠰 #username .
 𝐓𝐓• 𝐒𝐓𝐀𝐒𝐓 𖠰 #stast .
@@ -21842,7 +21847,12 @@ local Teext =[[
 ]]
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true') 
 end
-
+if Text == '/Lange' then
+send(msg.chat_id_, msg.id_,'   ⇐ '..msg.sender_user_id_)
+end
+if Text == '/bowtie' then
+send(msg.chat_id_, msg.id_,getbio(msg.sender_user_id_)) 
+end 
 if Text and Text:match("^yesS(.*)$") then  
 local delallph = Text:match("^yesS(.*)$")
 if msg.sender_user_id_ == tonumber(SUDO) then 
