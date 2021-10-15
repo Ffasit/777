@@ -14369,21 +14369,30 @@ end
 if text == "معلوماتي" and not bot_data:get(ban_id..'ghiktr'..msg.chat_id_) then     
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(extra,result,success)
 if result.username_ then
-username = result.username_ 
+username = '@'..result.username_  
 else
-username = 'SOURCEVENOM'
+username = 'sasa_boody'
 end
 local getbioY = getbio(msg.sender_user_id_)
 local iduser = msg.sender_user_id_
+local Msguser = tonumber(bot_data:get(ban_id..'Msg_User'..msg.chat_id_..':'..msg.sender_user_id_) or 1) 
 local msg_id = msg.id_/2097152/0.5  
-local textt = ' • 🖤 | 𝑺𝑻𝑨 : '..Rutba(msg.sender_user_id_,msg.chat_id_)
-local stay = ' • 🖤 | 𝑺𝑻𝑨 : '..getbio(msg.sender_user_id_)
-local shook = ' • 🖤 | 𝑺𝑻𝑨 : '..msg.sender_user_id_
+local textt = ' • 🖤 | 𝚂𝚃𝙰 : '..Rutba(msg.sender_user_id_,msg.chat_id_)
+local stay = ' • 🖤 | 𝙱𝙸𝙾 : '..getbio(msg.sender_user_id_)
+local shook = ' • 🖤 | 𝙸𝙳 : '..msg.sender_user_id_
+local user = ' • 🖤 | 𝚄𝙴𝚂 :  '..result.username_
+local masg = ' • 🖤 | 𝙼𝚂𝙶 :  '..tonumber(bot_data:get(ban_id..'Msg_User'..msg.chat_id_..':'..msg.sender_user_id_) or 1) 
 local Banda = 'https://t.me/Qtdao/71'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
+{text = user, url="http://t.me/"..username},
+},
+{
 {text = textt, url="http://t.me/"..username},
+},
+{
+{text = masg, url="http://t.me/"..username},
 },
 {
 {text = shook, url="http://t.me/"..username},
