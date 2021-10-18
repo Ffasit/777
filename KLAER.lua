@@ -17066,7 +17066,7 @@ end
 if bot_data:del(ban_id.."my_GHoeq2:status"..msg.chat_id_,userid)  then
 https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callback_query_id="..data.id_.."&text="..URL.escape("تم ✅").."&show_alert=true")
 Co = "✅"
-else bot_data:set(ban_id.."my_GHoeq2:status"..msg.chat_id_,true,userid) then
+else bot_data:set(ban_id.."my_GHoeq2:status"..msg.chat_id_,true,userid) 
 https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callback_query_id="..data.id_.."&text="..URL.escape("نو").."&show_alert=true")
 Co = "✖"
 end
